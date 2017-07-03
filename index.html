@@ -35,16 +35,36 @@
     <source src="son/perdu.mp3" >
       </audio>
       <section id="jeu" >
-        <img src="img/ciseaux.png" onclick="Jouer('ciseaux')" alt="">
-    <img src="img/feuille.png" onclick="Jouer('papier')" alt="">
-      <img src="img/pierre.png" onclick="Jouer('pierre')" alt="">
-      <article id="score">
+        <div class="utilisateur">
 
-      </article>
 
-      </section>
+
+        <img src="img/ciseaux.png" onclick="Jouer('ciseaux')" alt="" >
+    <img src="img/feuille.png" onclick="Jouer('papier')" alt="" >
+      <img src="img/pierre.png" onclick="Jouer('pierre')" alt="" >
+      </div>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active ciseaux">
+      <img class="d-block img-fluid " src="img/ciseaux.png" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid feuille" src="img/feuille.png" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid pierre" src="img/pierre.png" alt="Third slide">
+    </div>
+  </div>
+</div>
+<article id="score">
+</article>
+</section>
+
+
+
 
       </main>
+
 
       <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>

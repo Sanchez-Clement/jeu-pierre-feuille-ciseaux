@@ -6,6 +6,13 @@ var scoreOrdi = 0;
 var sound;
 
 //***********************************fonctions******************************
+$(document).ready(function(){
+    // Activate Carousel
+    $("#myCarousel").carousel({interval: 0.001});
+
+
+});
+
 
 //ffonction qui permet de jouer du son !!!!!
 function playAudio(sound) {
@@ -47,10 +54,11 @@ function LancerJeu() {
 // fonction lorsque le jeu se finit !!!!
 
 function ArreterJeu() {
-  document.getElementById("jeu").style.display = 'none';
-  document.getElementById("boutonjeu").style.display = 'block';
-  document.getElementById("back").style.backgroundImage = "url('img/fond.jpg')"
-  document.getElementById("back").style.backgroundPosition = "top";
+  // document.getElementById("jeu").style.display = 'none';
+  // document.getElementById("boutonjeu").style.display = 'block';
+  // document.getElementById("back").style.backgroundImage = "url('img/fond.jpg')"
+  // document.getElementById("back").style.backgroundPosition = "top";
+  window.location.reload()
 }
 
 // fonction jouer avec comme variable joueur (pierre, feuille ou ciseaux)

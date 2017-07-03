@@ -18,9 +18,17 @@ height: 100vh;
 
 #jeu {
 display: none;
-  position: absolute;
-  top: 35%;
+flex-wrap: wrap;
+
   width: 100%;
+
+
+}
+
+#jeu .utilisateur {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
 
 
 }
@@ -28,19 +36,24 @@ display: none;
 #score {
   color: black;
   font-size: 30px;
-  position : absolute;
+
   width: 100%;
   text-align: center;
-  top: 110%;
+
   font-family: 'Lobster', cursive;
 
 }
 
 #jeu img {
 
-  width: 20%;
+  width: 15%;
   display: inline-block;
   height: 200px;
+  margin: auto;
+}
+
+#myCarousel {
+  width: 50%;
   margin: auto;
 }
 
