@@ -6,7 +6,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
@@ -16,15 +16,35 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+      <main class="fond" id="back">
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        		<!-- Images Type  -->
-        <!-- <img src="http://placehold.it/350x150" alt=""> -->
-        	<!-- Fin Images Type  -->
+
+
+
+
+
+      <h1>
+        Pierre ,papier, ciseaux ?
+      </h1>
+      <button type="button" name="button" onclick="LancerJeu()" id="boutonjeu" >Oseras tu me défier ?</button>
+      <audio  id="myAudio">
+
+    <source src="1.mp3" >
+      </audio>
+      <audio  id="myAudio2">
+    <source src="perdu.mp3" >
+      </audio>
+      <section id="jeu" >
+        <img src="ciseaux.png" onclick="Jouer('ciseaux')" alt="">
+    <img src="feuille.png" onclick="Jouer('papier')" alt="">
+      <img src="pierre.png" onclick="Jouer('pierre')" alt="">
+      <article id="score">
+
+      </article>
+
+      </section>
+
+      </main>
 
       <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>
