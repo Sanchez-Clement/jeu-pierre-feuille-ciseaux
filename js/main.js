@@ -40,7 +40,7 @@ function win() {
 function LancerJeu() {
   document.getElementById("jeu").style.display = 'flex';
   document.getElementById("boutonjeu").style.display = 'none';
-  document.getElementById("back").style.backgroundImage = "url('fond2.jpg')";
+  document.getElementById("back").style.backgroundImage = "url('../img/fond2.jpg')";
   document.getElementById("back").style.backgroundPosition = "center";
 }
 
@@ -49,7 +49,7 @@ function LancerJeu() {
 function ArreterJeu() {
   document.getElementById("jeu").style.display = 'none';
   document.getElementById("boutonjeu").style.display = 'block';
-  document.getElementById("back").style.backgroundImage = "url('fond.jpg')"
+  document.getElementById("back").style.backgroundImage = "url('../img/fond.jpg')"
   document.getElementById("back").style.backgroundPosition = "top";
 }
 
