@@ -4,6 +4,7 @@ var joueur;
 var scoreJoueur = 0;
 var scoreOrdi = 0;
 var sound;
+var pseudo = document.getElementsByClasseName("pseudo");
 
 //***********************************fonctions******************************
 $(document).ready(function(){
@@ -47,9 +48,9 @@ function win() {
 function LancerJeu() {
   document.getElementById("jeu").style.display = 'flex';
   document.getElementById("boutonjeu").style.display = 'none';
-  document.getElementById("back").style.backgroundImage = "url('img/fond2.jpg')";
-  document.getElementById("back").style.backgroundPosition = "center";
-}
+  // document.getElementById("back").style.backgroundColor = "rgb(143,203,193)";
+//   document.getElementById("back").style.backgroundPosition = "center";
+ }
 
 // fonction lorsque le jeu se finit !!!!
 
