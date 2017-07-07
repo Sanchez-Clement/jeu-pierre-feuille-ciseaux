@@ -31,6 +31,35 @@ function reset() {
   document.getElementById("choiceordi").src="";
 
 }
+function comparer() {
+  if (scoreOrdi == 3) {
+
+    alert("LOOSER !");
+    scoreJoueur = 0;
+    scoreOrdi = 0;
+    ArreterJeu();
+    document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+
+
+
+
+  }
+
+  // si le joueur gagnele jeu
+
+  if (scoreJoueur ==3) {
+
+    alert("winner !");
+    scoreJoueur = 0;
+    scoreOrdi = 0;
+    ArreterJeu();
+    document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+
+
+
+
+  }
+}
 
 
 
@@ -41,7 +70,7 @@ function perdu() {
   setTimeout(function(){document.getElementById("score").innerHTML = "You loose !";document.getElementById("back").style.backgroundImage = "";},2000)
   setTimeout(function(){scoreOrdi += 1;
   playAudio(document.getElementById("myAudio2"));
-  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";}, 3000)
+  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";comparer();}, 3000)
 
 }
 
@@ -50,7 +79,7 @@ function egalite() {
 
   setTimeout(function(){document.getElementById("score").innerHTML = "Egalite !";document.getElementById("back").style.backgroundImage = "";},2000)
   setTimeout(function(){
-  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";}, 3000)
+  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";comparer();}, 3000)
 
 }
 
@@ -63,7 +92,7 @@ function win() {
 
   setTimeout(function(){scoreJoueur += 1;
   playAudio(document.getElementById("myAudio2"));
-  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";}, 3000)
+  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";comparer();}, 3000)
 
 
   // alert("tu as gagné !");
@@ -195,31 +224,6 @@ document.getElementById("choiceordi").src="img/pierre.png";
 // si le joueur perd le jeu
 
   setTimeout(reset, 3000);
-  if (scoreOrdi > 2) {
-
-    alert("LOOSER !");
-    scoreJoueur = 0;
-    scoreOrdi = 0;
-    ArreterJeu();
-    document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
 
 
-
-
-  }
-
-  // si le joueur gagnele jeu
-
-  if (scoreJoueur >2) {
-
-    alert("winner !");
-    scoreJoueur = 0;
-    scoreOrdi = 0;
-    ArreterJeu();
-    document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
-
-
-
-
-  }
 }
