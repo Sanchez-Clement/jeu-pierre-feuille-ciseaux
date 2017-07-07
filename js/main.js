@@ -32,28 +32,49 @@ function reset() {
 
 }
 
+
+
 // fonction lorsque le joueur à perdu un point !!!!!!
 function perdu() {
-  // alert("tu as perdu !");
-  scoreOrdi += 1;
-  playAudio(document.getElementById("myAudio2"));
-  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+  document.getElementById("back").style.backgroundImage = "url('img/pailette.gif')";
 
+  setTimeout(function(){document.getElementById("score").innerHTML = "You loose !";document.getElementById("back").style.backgroundImage = "";},2000)
+  setTimeout(function(){scoreOrdi += 1;
+  playAudio(document.getElementById("myAudio2"));
+  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";}, 3000)
+
+}
+
+function egalite() {
+  document.getElementById("back").style.backgroundImage = "url('img/pailette.gif')";
+
+  setTimeout(function(){document.getElementById("score").innerHTML = "Egalite !";document.getElementById("back").style.backgroundImage = "";},2000)
+  setTimeout(function(){
+  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";}, 3000)
 
 }
 
 // fontion lorsque le joueur gagne un point !!!!!!!
 
 function win() {
+  document.getElementById("back").style.backgroundImage = "url('img/pailette.gif')";
+
+  setTimeout(function(){document.getElementById("score").innerHTML = "You win !";document.getElementById("back").style.backgroundImage = "";},2000)
+
+  setTimeout(function(){scoreJoueur += 1;
+  playAudio(document.getElementById("myAudio2"));
+  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";}, 3000)
 
 
   // alert("tu as gagné !");
-  scoreJoueur += 1;
-  playAudio(document.getElementById("myAudio"));
-  document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+  // scoreJoueur += 1;
+  // playAudio(document.getElementById("myAudio"));
+  // document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
 
 
 }
+
+
 
 
 // fonction lorsque le jeu se lance !!!!!!
@@ -80,6 +101,7 @@ function ArreterJeu() {
   // document.getElementById("back").style.backgroundPosition = "top";
   window.location.reload()
 }
+
 
 // fonction jouer avec comme variable joueur (pierre, feuille ou ciseaux)
 function Jouer(joueur) {
@@ -120,7 +142,7 @@ document.getElementById("choiceordi").src="img/pierre.png";
 
 
   if (ordi == joueur) {
-    alert("Egalite");
+    egalite();
   } else {
 
     switch (joueur) {
@@ -169,11 +191,11 @@ document.getElementById("choiceordi").src="img/pierre.png";
 
   }
 
-setTimeout(reset, 6000)
 
 // si le joueur perd le jeu
 
-  if (scoreOrdi >= 3) {
+  setTimeout(reset, 3000);
+  if (scoreOrdi > 2) {
 
     alert("LOOSER !");
     scoreJoueur = 0;
@@ -188,7 +210,7 @@ setTimeout(reset, 6000)
 
   // si le joueur gagnele jeu
 
-  if (scoreJoueur >= 3) {
+  if (scoreJoueur >2) {
 
     alert("winner !");
     scoreJoueur = 0;
