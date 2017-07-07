@@ -26,9 +26,9 @@
       <h1>
         Pierre ,papier, ciseaux ?
       </h1>
-      <form class="pseudo" action="index.html" method="post">
-        <label for="pseudo">Votre pseudo :</label>
-        <input type="text" name="pseudo" value="">
+      <form  action="index.html" method="post">
+        <label >Votre pseudo :</label>
+        <input type="text"   id="pseudo"  >
       </form>
       <button type="button" name="button" onclick="LancerJeu()" id="boutonjeu" >Oseras tu me défier ?</button>
 <img src="img/game.jpg" alt="" id="game">
@@ -39,28 +39,41 @@
       <audio  id="myAudio2">
     <source src="son/perdu.mp3" >
       </audio>
-      <section id="jeu" >
-        <div class="utilisateur">
+      <section id="jeu" class="container">
+        <div class="utilisateur" class="row">
 
 
 
-        <img src="img/ciseaux.png" onclick="Jouer('ciseaux')" alt="" >
-    <img src="img/feuille.png" onclick="Jouer('papier')" alt="" >
-      <img src="img/pierre.png" onclick="Jouer('pierre')" alt="" >
+        <img src="img/ciseaux.png" onclick="Jouer('ciseaux')" class="col-4 col-md-2 img-fluid" id="ciseauxjoueur" alt="" >
+      <img src="img/pierre.png" onclick="Jouer('pierre')" class="col-4 col-md-2 img-fluid" id="pierrejoueur" alt="" >
+      <img src="img/feuille.png" onclick="Jouer('papier')" class="col-4 col-md-2 img-fluid" id="papierjoueur" alt="" >
       </div>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+      <div id="versus" class="col-12">
+        <p>VS</p>
+      </div>
+
+
+        <div id="myCarousel" class="carousel slide col-4 col-md-2" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active ciseaux">
+    <div class="carousel-item active ciseaux" id="ciseauxordi">
       <img class="d-block img-fluid " src="img/ciseaux.png" alt="First slide">
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" id="feuilleordi">
       <img class="d-block img-fluid feuille" src="img/feuille.png" alt="Second slide">
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" id="pierreordi">
       <img class="d-block img-fluid pierre" src="img/pierre.png" alt="Third slide">
     </div>
+
   </div>
+
+
+
 </div>
+
+  <img src="" alt="" id="choiceordi" class="col-4 col-md-2 ">
+
 <article id="score">
 </article>
 </section>

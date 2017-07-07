@@ -4,12 +4,14 @@ var joueur;
 var scoreJoueur = 0;
 var scoreOrdi = 0;
 var sound;
-var pseudo = document.getElementsByClasseName("pseudo");
+var pseudo;
+var test;
+
 
 //***********************************fonctions******************************
 $(document).ready(function(){
     // Activate Carousel
-    $("#myCarousel").carousel({interval: 0.001});
+    $("#myCarousel").carousel({interval: 1});
 
 
 });
@@ -21,12 +23,21 @@ function playAudio(sound) {
   sound.play();
 }
 
+function reset() {
+  document.getElementById("ciseauxjoueur").style.display = 'flex';
+  document.getElementById("papierjoueur").style.display = 'flex';
+  document.getElementById("pierrejoueur").style.display = 'flex';
+  document.getElementById("myCarousel").style.display = 'flex';
+  document.getElementById("choiceordi").src="";
+
+}
+
 // fonction lorsque le joueur à perdu un point !!!!!!
 function perdu() {
-  alert("tu as perdu !");
+  // alert("tu as perdu !");
   scoreOrdi += 1;
   playAudio(document.getElementById("myAudio2"));
-  document.getElementById("score").innerHTML = "Moi : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";
 
 
 }
@@ -34,10 +45,12 @@ function perdu() {
 // fontion lorsque le joueur gagne un point !!!!!!!
 
 function win() {
-  alert("tu as gagné !");
+
+
+  // alert("tu as gagné !");
   scoreJoueur += 1;
   playAudio(document.getElementById("myAudio"));
-  document.getElementById("score").innerHTML = "Moi : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+  document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
 
 
 }
@@ -46,8 +59,14 @@ function win() {
 // fonction lorsque le jeu se lance !!!!!!
 
 function LancerJeu() {
+  pseudo = document.getElementById("pseudo").value;
   document.getElementById("jeu").style.display = 'flex';
+  document.getElementById("back").style.justifyContent = 'flex-start';
+  document.getElementById("game").style.display = 'none';
+  document.getElementsByTagName("form")[0].style.display = 'none';
   document.getElementById("boutonjeu").style.display = 'none';
+  document.getElementsByTagName("h1")[0].innerHTML= "Bonjour " + pseudo;
+  document.getElementById("versus").style.display = 'flex';
   // document.getElementById("back").style.backgroundColor = "rgb(143,203,193)";
 //   document.getElementById("back").style.backgroundPosition = "center";
  }
@@ -66,17 +85,39 @@ function ArreterJeu() {
 function Jouer(joueur) {
 
 
+  if (joueur == "pierre") {
+document.getElementById("ciseauxjoueur").style.display = 'none';
+document.getElementById("papierjoueur").style.display = 'none';
+  } else if (joueur == "papier") {
+    document.getElementById("ciseauxjoueur").style.display = 'none';
+    document.getElementById("pierrejoueur").style.display = 'none';
+  } else {
+    document.getElementById("papierjoueur").style.display = 'none';
+    document.getElementById("pierrejoueur").style.display = 'none';
+  }
 
 
   var ordi = Math.random();
 
   if (ordi >= 0 && ordi < 0.33) {
     ordi = "pierre";
+    document.getElementById("myCarousel").style.display = 'none';
+document.getElementById("choiceordi").src="img/pierre.png";
+
   } else if (ordi >= 0.33 && ordi < 0.66) {
     ordi = "ciseaux";
+    document.getElementById("myCarousel").style.display = 'none';
+    document.getElementById("choiceordi").src="img/ciseaux.png";
+
   } else {
     ordi = "papier";
+    document.getElementById("myCarousel").style.display = 'none';
+    document.getElementById("choiceordi").src="img/feuille.png";
+
   }
+
+
+
 
   if (ordi == joueur) {
     alert("Egalite");
@@ -86,10 +127,10 @@ function Jouer(joueur) {
       case "pierre":
         if (ordi == "papier") {
           perdu();
-          alert("L'ordi avait choisit " + ordi);
+          // alert("L'ordi avait choisit " + ordi);
         } else {
           win();
-          alert("L'ordi avait choisit " + ordi);
+          // alert("L'ordi avait choisit " + ordi);
 
         }
         break;
@@ -99,10 +140,10 @@ function Jouer(joueur) {
       case "ciseaux":
         if (ordi == "pierre") {
           perdu();
-          alert("L'ordi avait choisit " + ordi);
+          // alert("L'ordi avait choisit " + ordi);
         } else {
           win();
-          alert("L'ordi avait choisit " + ordi);
+          // alert("L'ordi avait choisit " + ordi);
 
         }
         break;
@@ -111,10 +152,10 @@ function Jouer(joueur) {
       case "papier":
         if (ordi == "ciseaux") {
           perdu();
-          alert("L'ordi avait choisit " + ordi);
+          // alert("L'ordi avait choisit " + ordi);
         } else {
           win();
-          alert("L'ordi avait choisit " + ordi);
+          // alert("L'ordi avait choisit " + ordi);
 
         }
         break;
@@ -124,7 +165,11 @@ function Jouer(joueur) {
 
     }
 
+
+
   }
+
+setTimeout(reset, 6000)
 
 // si le joueur perd le jeu
 
@@ -134,7 +179,7 @@ function Jouer(joueur) {
     scoreJoueur = 0;
     scoreOrdi = 0;
     ArreterJeu();
-    document.getElementById("score").innerHTML = "Moi : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+    document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
 
 
 
@@ -149,7 +194,7 @@ function Jouer(joueur) {
     scoreJoueur = 0;
     scoreOrdi = 0;
     ArreterJeu();
-    document.getElementById("score").innerHTML = "Moi : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+    document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
 
 
 

@@ -45,9 +45,12 @@ align-items: center;
 
 #jeu {
 display: none;
-flex-wrap: wrap;
+flex-flow: column nowrap;
+align-items: center;
+justify-content: space-around;
 
   width: 100%;
+
 
 
 }
@@ -56,8 +59,15 @@ flex-wrap: wrap;
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 50px;
 
 
+}
+
+#jeu .utilisateur img {
+  padding: 0;
 }
 
 #score {
@@ -71,18 +81,8 @@ flex-wrap: wrap;
 
 }
 
-#jeu img {
 
-  width: 15%;
-  display: inline-block;
-  height: 200px;
-  margin: auto;
-}
 
-#myCarousel {
-  width: 50%;
-  margin: auto;
-}
 
 
 
@@ -111,6 +111,25 @@ margin: auto;
 padding: 30Px;
 
 }
+
+#versus {
+  display: none;
+
+  font-family: 'Lobster', cursive;
+  color: rgb(243,166,74);
+  text-shadow: white 0px 1px 0.5px ;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+#versus p {
+  margin: auto;
+}
+
+#myCarousel {
+  padding: 0;
+}
+
 
 
 @media (min-width : 600px) {
