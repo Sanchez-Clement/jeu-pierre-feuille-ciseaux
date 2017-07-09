@@ -73,7 +73,7 @@ function comparer() {
 // fonction lorsque le joueur à perdu un point !!!!!!
 function perdu() {
   document.getElementById("back").style.backgroundImage = "url('img/pailette.gif')";
-playAudio(document.getElementById("myAudio3"));
+
   setTimeout(function(){document.getElementById("score").innerHTML = "You loose !";document.getElementById("back").style.backgroundImage = "";},2000)
   setTimeout(function(){scoreOrdi += 1;
   playAudio(document.getElementById("myAudio2"));
@@ -83,7 +83,7 @@ playAudio(document.getElementById("myAudio3"));
 
 function egalite() {
   document.getElementById("back").style.backgroundImage = "url('img/pailette.gif')";
-playAudio(document.getElementById("myAudio3"));
+
   setTimeout(function(){document.getElementById("score").innerHTML = "Egalite !";document.getElementById("back").style.backgroundImage = "";},2000)
   setTimeout(function(){
   document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";comparer();}, 3000)
@@ -94,7 +94,6 @@ playAudio(document.getElementById("myAudio3"));
 
 function win() {
   document.getElementById("back").style.backgroundImage = "url('img/pailette.gif')";
-  playAudio(document.getElementById("myAudio3"));
 
   setTimeout(function(){document.getElementById("score").innerHTML = "You win !";document.getElementById("back").style.backgroundImage = "";},2000)
 

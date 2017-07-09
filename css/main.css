@@ -11,7 +11,7 @@ body {
 
   background-color: rgb(143,203,193);
   background-size: cover;
-  background-position: top;
+  background-position: center;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
