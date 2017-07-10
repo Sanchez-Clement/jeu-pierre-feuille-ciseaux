@@ -5,39 +5,69 @@ var scoreJoueur = 0;
 var scoreOrdi = 0;
 var sound;
 var pseudo;
-var test;
+
 
 
 //***********************************fonctions******************************
-$(document).ready(function(){
-    // Activate Carousel
-    $("#myCarousel").carousel({interval: 1});
+//
+
+/**
+ * document - speed of carousel from bootstrap
+ *
+
+ * @return {type}           no return
+ */
+
+$(document).ready(function() {
+  // Activate Carousel
+  $("#myCarousel").carousel({
+    interval: 1
+  });
 
 
 });
 
 
 //ffonction qui permet de jouer du son !!!!!
+//
+
+
+/**
+ * playAudio - play a sound who is in index.html
+ *
+ * @param  {type} sound file .mp3
+ * @return {type}       no return
+ */
 function playAudio(sound) {
 
   sound.play();
 }
 
-function stopAudio(sound) {
-
-  sound.stop();
-}
 
 
 
+
+/**
+ * reset - when a round is finished, all the player choices and the carousel is visible
+ *
+ * @return {type}  no return
+ */
 function reset() {
   document.getElementById("ciseauxjoueur").style.display = 'flex';
   document.getElementById("papierjoueur").style.display = 'flex';
   document.getElementById("pierrejoueur").style.display = 'flex';
   document.getElementById("myCarousel").style.display = 'flex';
-  document.getElementById("choiceordi").src="";
+  document.getElementById("choiceordi").src = "";
 
 }
+
+
+
+/**
+ * comparer - when the round is fished, if a score is more of 3, the game stop
+ *
+ * @return {type}  no return
+ */
 function comparer() {
   if (scoreOrdi == 3) {
 
@@ -54,7 +84,7 @@ function comparer() {
 
   // si le joueur gagnele jeu
 
-  if (scoreJoueur ==3) {
+  if (scoreJoueur == 3) {
 
     alert("winner !");
     scoreJoueur = 0;
@@ -71,41 +101,71 @@ function comparer() {
 
 
 // fonction lorsque le joueur à perdu un point !!!!!!
+/**
+ * perdu - when a player loose a round.
+ *
+ * @return {type}  no return
+ */
+
 function perdu() {
   document.getElementById("back").style.backgroundImage = "url('img/pailette.gif')";
 
-  setTimeout(function(){document.getElementById("score").innerHTML = "You loose !";document.getElementById("back").style.backgroundImage = "";},2000)
-  setTimeout(function(){scoreOrdi += 1;
-  playAudio(document.getElementById("myAudio2"));
-  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";comparer();}, 3000)
+  setTimeout(function() {
+    document.getElementById("score").innerHTML = "You loose !";
+    document.getElementById("back").style.backgroundImage = "";
+  }, 2000)
+  setTimeout(function() {
+    scoreOrdi += 1;
+    playAudio(document.getElementById("myAudio2"));
+    document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+    comparer();
+  }, 3000)
 
 }
 
+
+/**
+ * egalite - when the choice ordi is the same as the choice of player
+ *
+ * @return {type}  no return
+ */
 function egalite() {
   document.getElementById("back").style.backgroundImage = "url('img/pailette.gif')";
 
-  setTimeout(function(){document.getElementById("score").innerHTML = "Egalite !";document.getElementById("back").style.backgroundImage = "";},2000)
-  setTimeout(function(){
-  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";comparer();}, 3000)
+  setTimeout(function() {
+    document.getElementById("score").innerHTML = "Egalite !";
+    document.getElementById("back").style.backgroundImage = "";
+  }, 2000)
+  setTimeout(function() {
+    document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+    comparer();
+  }, 3000)
 
 }
 
-// fontion lorsque le joueur gagne un point !!!!!!!
 
+
+/**
+ * win - when a player win a round
+ *
+ * @return {type}  no return
+ */
 function win() {
   document.getElementById("back").style.backgroundImage = "url('img/pailette.gif')";
 
-  setTimeout(function(){document.getElementById("score").innerHTML = "You win !";document.getElementById("back").style.backgroundImage = "";},2000)
+  setTimeout(function() {
+    document.getElementById("score").innerHTML = "You win !";
+    document.getElementById("back").style.backgroundImage = "";
+  }, 2000)
 
-  setTimeout(function(){scoreJoueur += 1;
-  playAudio(document.getElementById("myAudio"));
-  document.getElementById("score").innerHTML = pseudo + " : "+ scoreJoueur + "  -  " + scoreOrdi + " : ordi";comparer();}, 3000)
+  setTimeout(function() {
+    scoreJoueur += 1;
+    playAudio(document.getElementById("myAudio"));
+    document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
+    comparer();
+  }, 3000)
 
 
-  // alert("tu as gagné !");
-  // scoreJoueur += 1;
-  // playAudio(document.getElementById("myAudio"));
-  // document.getElementById("score").innerHTML = pseudo + " : " + scoreJoueur + "  -  " + scoreOrdi + " : ordi";
 
 
 }
@@ -113,8 +173,13 @@ function win() {
 
 
 
-// fonction lorsque le jeu se lance !!!!!!
 
+
+/**
+ * LancerJeu - when you enter your username and you want to play the game
+ *
+ * @return {type}  no return
+ */
 function LancerJeu() {
   pseudo = document.getElementById("pseudo").value;
   document.getElementById("jeu").style.display = 'flex';
@@ -122,14 +187,18 @@ function LancerJeu() {
   document.getElementById("game").style.display = 'none';
   document.getElementsByTagName("form")[0].style.display = 'none';
   document.getElementById("boutonjeu").style.display = 'none';
-  document.getElementsByTagName("h1")[0].innerHTML= "Bonjour " + pseudo;
+  document.getElementsByTagName("h1")[0].innerHTML = "Bonjour " + pseudo;
   document.getElementById("versus").style.display = 'flex';
-  // document.getElementById("back").style.backgroundColor = "rgb(143,203,193)";
-//   document.getElementById("back").style.backgroundPosition = "center";
- }
 
-// fonction lorsque le jeu se finit !!!!
+}
 
+
+
+/**
+ * ArreterJeu - when a player has 3 point, the site is reloaded
+ *
+ * @return {type}  no return
+ */
 function ArreterJeu() {
   // document.getElementById("jeu").style.display = 'none';
   // document.getElementById("boutonjeu").style.display = 'block';
@@ -140,12 +209,19 @@ function ArreterJeu() {
 
 
 // fonction jouer avec comme variable joueur (pierre, feuille ou ciseaux)
+/**
+ * Jouer - determine and compare the player choie and the computer choice
+ *  script
+ * @param  {type} joueur can be : pierre, feuille or ciseaux
+ * @return {type}        no return
+ */
+
 function Jouer(joueur) {
 
 
   if (joueur == "pierre") {
-document.getElementById("ciseauxjoueur").style.display = 'none';
-document.getElementById("papierjoueur").style.display = 'none';
+    document.getElementById("ciseauxjoueur").style.display = 'none';
+    document.getElementById("papierjoueur").style.display = 'none';
   } else if (joueur == "papier") {
     document.getElementById("ciseauxjoueur").style.display = 'none';
     document.getElementById("pierrejoueur").style.display = 'none';
@@ -160,17 +236,17 @@ document.getElementById("papierjoueur").style.display = 'none';
   if (ordi >= 0 && ordi < 0.33) {
     ordi = "pierre";
     document.getElementById("myCarousel").style.display = 'none';
-document.getElementById("choiceordi").src="img/pierre.png";
+    document.getElementById("choiceordi").src = "img/pierre.png";
 
   } else if (ordi >= 0.33 && ordi < 0.66) {
     ordi = "ciseaux";
     document.getElementById("myCarousel").style.display = 'none';
-    document.getElementById("choiceordi").src="img/ciseaux.png";
+    document.getElementById("choiceordi").src = "img/ciseaux.png";
 
   } else {
     ordi = "papier";
     document.getElementById("myCarousel").style.display = 'none';
-    document.getElementById("choiceordi").src="img/feuille.png";
+    document.getElementById("choiceordi").src = "img/feuille.png";
 
   }
 
@@ -228,7 +304,7 @@ document.getElementById("choiceordi").src="img/pierre.png";
   }
 
 
-// si le joueur perd le jeu
+  // si le joueur perd le jeu
 
   setTimeout(reset, 3000);
 
