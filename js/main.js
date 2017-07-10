@@ -85,7 +85,7 @@ function comparer() {
   // si le joueur gagnele jeu
 
   if (scoreJoueur == 3) {
-
+document.getElementById("back").style.backgroundImage = "url('img/pailette2.gif')";
     alert("winner !");
     scoreJoueur = 0;
     scoreOrdi = 0;
