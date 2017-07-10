@@ -4,61 +4,77 @@
 
 body {
   width: 100%;
-
 }
 
-#back {
 
-  background-color: rgb(143,203,193);
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@page accueil@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#back {
+  background-color: rgb(143, 203, 193);
   background-size: cover;
   background-position: center;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-between;
-
-min-height: 100vh;
-
-
+  min-height: 100vh;
 }
 
 #back h1 {
   font-size: 28px;
   margin: 0;
-  color: rgb(231,104,61);
-text-shadow: white 0px 1px 0.5px ;
+  color: rgb(231, 104, 61);
+  text-shadow: white 0px 1px 0.5px;
+  font-family: 'Lobster', cursive;
+  padding: 30Px;
+}
 
 
+/*h1 {
+
+  font-size: 30px;
+  text-align: center;
+width: auto;
+margin: auto;
+
+
+}*/
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  font-family: 'Lobster', cursive;
+}
+
+button {
+  color: white;
+  background-color: rgb(243, 166, 74);
+  border: none;
+  border-radius: 20px;
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
+  padding: 10px;
 }
 
 #game {
   width: 100%;
-
-
 }
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@page jeu@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #choiceordi {
   margin: 0;
   padding: 0;
 }
 
-form {
-display: flex;
-flex-flow: column nowrap;
-align-items: center;
-  font-family: 'Lobster', cursive;
-}
-
 #jeu {
-display: none;
-flex-flow: column nowrap;
-align-items: center;
-justify-content: space-around;
-
+  display: none;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
   width: 100%;
-
-
-
 }
 
 #jeu .utilisateur {
@@ -68,8 +84,6 @@ justify-content: space-around;
   justify-content: space-around;
   margin-top: 20px;
   margin-bottom: 30px;
-
-
 }
 
 #jeu .utilisateur img {
@@ -79,51 +93,20 @@ justify-content: space-around;
 #score {
   color: black;
   font-size: 30px;
-
   width: 100%;
   text-align: center;
-
   font-family: 'Lobster', cursive;
-
-}
-
-
-
-
-
-
-
-button {
-  color: white;
-  background-color: rgb(243,166,74);
-  border: none;
-  border-radius: 20px;
-
-  font-family: 'Lobster', cursive;
-  font-size: 20px;
-  padding: 10px;
 }
 
 .left {
   position: relative;
 }
 
-h1 {
-  font-family: 'Lobster', cursive;
-  font-size: 30px;
-  text-align: center;
-width: auto;
-margin: auto;
-padding: 30Px;
-
-}
-
 #versus {
   display: none;
-
   font-family: 'Lobster', cursive;
-  color: rgb(243,166,74);
-  text-shadow: white 0px 1px 0.5px ;
+  color: rgb(243, 166, 74);
+  text-shadow: white 0px 1px 0.5px;
   font-size: 20px;
   margin-bottom: 30px;
 }
@@ -136,23 +119,15 @@ padding: 30Px;
   padding: 0;
 }
 
-
-
-
-@media (min-width : 600px) {
-
-
+@media (min-width: 600px) {
   #game {
     width: 60%;
   }
 }
 
-@media (min-width : 1030px) {
-
-
+@media (min-width: 1030px) {
   #game {
     width: 40%;
-
   }
   #back h1 {
     font-size: 50px;
